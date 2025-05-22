@@ -1,0 +1,24 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Webstudio app
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description: This is a documentation of webstudio app
+tags:
+  - name: Contacts
+    description: Operations about contacts.
+  - name: Subscription
+    description: Subscription operations.
+servers:
+  - url: http://localhost:5000
+  - url: https://webstudio-server.onrender.com
+security: []
+paths:
+  /api/contacts:
+    post:
+      $ref: '../swagger/paths/contacts/post.yaml'
+  /api/subscribe:
+    post:
+      $ref: '../swagger/paths/subscriptions/post.yaml'

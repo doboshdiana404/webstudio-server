@@ -7,6 +7,7 @@ const rateLimit = require('express-rate-limit');
 const contactRoutes = require('./routes/contact.routes');
 const errorHandler = require('./middlewares/errorHandler');
 const subscribeRoutes = require('./routes/subscribe.routes');
+const { swaggerDocs } = require('./middlewares/swaggerDocs');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(limiter);
 
 app.use('/api/v1/contacts', contactRoutes);
 app.use('/api/subscribe', subscribeRoutes);
+app.use('/api-docs', swaggerDocs());
 app.use((req, res) => res.status(404).json({ message: 'Route not found' }));
 
 app.use(errorHandler);

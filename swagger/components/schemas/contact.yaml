@@ -1,0 +1,19 @@
+type: object
+properties:
+  name:
+    type: string
+    example: 'Олена Петрівна'
+  email:
+    type: string
+    format: email
+    example: 'olena@example.com'
+  number:
+    type: integer
+    example: 380991234567
+  comment:
+    type: string
+    example: 'Хочу отримати консультацію.'
+required:
+  - name
+  - email
+  - number

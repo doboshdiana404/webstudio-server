@@ -1,0 +1,52 @@
+tags:
+  - Contacts
+summary: Submit a contact message
+operationId: submitContact
+description: Submits a contact message from the feedback form.
+
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../components/schemas/contact.yaml
+responses:
+  '201':
+    description: Contact successfully saved
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: 'Контакт успішно збережено!'
+  '400':
+    description: Missing required fields
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 400
+            message:
+              type: string
+              example: 'Всі поля обовʼязкові!'
+  '500':
+    description: Server error
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 500
+            message:
+              type: string
+              example: 'Помилка сервера'
